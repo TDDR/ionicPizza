@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-img class="logo"
+          position="primary"
+          src="..\assets\icon\pizzaLogo.JPG"></ion-img>
+        </ion-col>
+        <ion-col>
+          <ion-title position="start" size="large">
+            Ionic Pizza
+          </ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-img class="logo"
+          position="primary"
+          src="..\assets\icon\pizzaLogo.JPG"></ion-img>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="true" [scrollEvents]="true" [forceOverscroll]="true" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title position="start" size="large">Ionic Pizza</ion-title>
+      <ion-img class="logo"
+               position="primary"
+               src=".\assets\icon\pizzaLogo.JPG"></ion-img>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list class="topp">
+            <ion-list-header>
+              <ion-label>Topping: {{theTopping}}</ion-label>
+            </ion-list-header>
+            <ion-item
+              button (click)="toppingSelected(topping)"
+              *ngFor="let topping of toppings">
+                <ion-label> {{topping}} </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col>
+          <ion-list class="sizes">
+            <ion-list-header>
+              <ion-label>Size: {{theSize}}</ion-label>
+            </ion-list-header>
+            <ion-item
+              button (click)="sizeSelected(sz)"
+              *ngFor="let sz of size">
+                <ion-label> {{sz}} </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>Quantity: {{quantity}} </ion-label>
+        </ion-col>
+        <ion-col size="9">
+          <ion-range min="0" max="20"
+                     (ionChange)="quantitySelected($event)"
+                     snaps>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="success" (click)="placeOrderClicked()">
+            Add to Order
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" (click)="myOrderClicked()">
+            My Order
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
